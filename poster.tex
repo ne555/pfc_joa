@@ -91,6 +91,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 	}
 
 	\headerbox{Partes que merecen ser explicadas}{name=nn,column=1,span=2,below=resultados}{
+
 		\subsubsection*{Diferenciación con el fondo}
 Se realiza la diferencia entre los canales RGB del frame actual contra la imagen de referencia del fondo. Esto permite discriminar al objeto.
 		\subsubsection*{Enmascaramiento de la piel}
@@ -109,7 +110,9 @@ Se realiza la diferencia entre los canales RGB del frame actual contra la imagen
 
 
 
+
 		\subsubsection*{Crecimiento inverso de regiones}
+
 
 			 Otro método  para  eliminar  los  huecos  dentro  de  las  regiones  es  el
 			crecimiento inverso, como se observa en [3].
@@ -119,7 +122,9 @@ Se realiza la diferencia entre los canales RGB del frame actual contra la imagen
 			regiones. Con esto obtenemos el fondo, al invertir  la  máscara  se  tendrán
 			las siluetas de los objetos.
 
+
 		\subsubsection*{Eliminación de la cara}
+
 
 			Luego del proceso anterior, se tiene una imagen compuesta por  objetos  tipo
 			piel. Estas pueden ser la cara, las manos y algún ruido que haya pasado  los
