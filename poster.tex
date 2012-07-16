@@ -1,0 +1,141 @@
+\documentclass[portrait,a0paper,fontscale=0.277]{baposter}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+\begin{document}
+\begin{poster}
+{ 
+	background=plain,
+	bgColorOne=white,
+	borderColor=green,
+	linewidth=2pt,
+	headershade=plain,
+	headerColorOne=green,
+	boxshade=plain,
+	boxColorOne=white,
+	boxColorTwo=green,
+	textborder=roundedsmall,
+	headerborder=open,
+	headershape=smallrounded,
+	headerheight=0.1\textheight,
+	headerfont=\Large\bf\textsc, %Sans Serif
+	eyecatcher=true
+}
+%{\includegraphics[height=5em]{images/graph_occluded.pdf}} 
+{}
+{ \bf\textsc{Localización de Manos por webcam \\ aplicado a Interfaz para Dibujo} }
+{ \textsc{Bedrij W. Benitez F. Benitez F.} }
+{ \includegraphics[height=9.0em]{images/logo} }
+
+	\headerbox{Introducción}{name=intro,column=0,row=0}{
+El objetivo del trabajo es desarrollar un algoritmo que permita localizar la posición de las manos y describir su 
+trayectoria teniendo como entrada un video obtenido de una cámara web. Siendo luego aplicado a la creación de 
+interfaces aéreas sin la utilización de marcadores. El trabajo no aborda el seguimiento de la mano, simplemente se trata 
+a cada fotograma de manera independiente. 
+
+No supone mayor penalidad en el tiempo de ejecución, sin embargo imposibilita la resolución de casos en donde la 
+mano se encuentra sobre la cara. 
+
+Además se supone que el brazo se encuentra cubierto. Si bien la detección sería mucho más simple (al menos en el caso 
+de que no exista superposición), se es difícil la elección de un punto característico 
+	}
+
+	\headerbox{Métodos}{name=metodos,column=0,below=intro}{
+	\begin{enumerate}\compresslist
+		\item Diferenciación con el fondo
+		\item Enmascaramiento de la piel
+		\item Eliminación de la cara
+		\item Ubicación del puntero
+	\end{enumerate}
+	}
+
+	\headerbox{Resultados}{name=resultadoss,column=1,span=2,row=0}{
+		Aca irían las imágenes de los procesos
+	}
+
+  \headerbox{Referencias}{name=referencias,column=0,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.4em}
+	  \bibitem{gonzales2002:manual}
+	  	R. Gonzales, R. Woods
+		\newblock{Digital Image Processing}
+		\newblock In {\emph Prentice Hall 2002}
+      \bibitem{amberg11:graphtrack}
+        B.~Amberg, T. Vetter.
+        \newblock {GraphTrack}: {F}ast and {G}lobally {O}ptimal {T}racking in {V}ideos
+        \newblock In {\em CVPR '11}
+      \bibitem{awf:tracking}
+        A.~Buchanan and A.~Fitzgibbon.
+        \newblock {I}nteractive {F}eature {T}racking using {K-D} {T}rees and {D}ynamic {P}rogramming.
+        \newblock In {\em CVPR '06}
+      \end{thebibliography}
+   \vspace{0.3em}
+  }
+
+%@BOOK{Gonzales2002,
+%    Address        = {},
+%    Author         = {Rafael C. Gonzalez and Richard E. Woods},
+%    Publisher      = {Prentice Hall},
+%    Title          = {Digital Image Processing},
+%    Year           = {2002}
+%}
+%
+%@ARTICLE{Cheng,
+%    Author         = {H. D. Cheng and X. H. Jiang and Y. Sun and Jing Li Wang},
+%    Journal          = {Pattern Recognition},
+%    Pages        = {2259--2281},
+%    Title          = {Color Image Segmentation: Advances \& Prospects},
+%    Volume         = {34},
+%    Year           = {2001}
+%}
+%
+%@ARTICLE{Vogt,
+%    Author         = {R. J. Godoy and P. Novara and J. P. Vogt},
+%    Journal        = {37 JAIIO},
+%    Pages          = {},
+%    Title          = {Reconocimiento de señas},
+%    Volume         = {},
+%    Year           = {2008}
+%}
+%
+
+  \headerbox{Source Code}{name=source,column=2,above=bottom}{
+  \noindent
+  \begin{minipage}{\linewidth}
+  \begin{minipage}{0.7\linewidth}
+    \indent{}The source code and compiled executables with an interactive interface are available at 
+	\end{minipage}
+	\end{minipage}
+  \emph{http://www.cs.unibas.ch/personen/amberg\_brian/graphtrack}
+  }
+
+  \headerbox{A Future Direction}{name=questions,column=1,span=1,above=bottom}{
+    We incorporated a background model, where a click informs us not only that `this is how the
+    patch looks like', but also for the rest of the frame, `this is how the patch
+    does not look like'. 
+    
+    Can we also \emph{efficiently} use a background tracks model, allowing us
+    to reason, `this would be a good track, but part of it can be better
+    explained by tracking another point'.
+   \vspace{0.3em}
+  }
+
+\end{poster}
+
+
+
+\end{document}
