@@ -91,7 +91,9 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 	}
 
 	\headerbox{Partes que merecen ser explicadas}{name=nn,column=1,span=2,below=resultados}{
-		\section{Enmascaramiento de la piel}
+		\subsubsection*{Diferenciación con el fondo}
+Se realiza la diferencia entre los canales RGB del frame actual contra la imagen de referencia del fondo. Esto permite discriminar al objeto.
+		\subsubsection*{Enmascaramiento de la piel}
 
 			Se decidió ocupar  la información del  Hue,  como  sugiere  [2].  Como  pre-
 			proceso se aplica un filtro de mediana,  tratando  además  de  uniformar  la
@@ -107,7 +109,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 
 
 
-		\section{Crecimiento inverso de regiones}
+		\subsubsection*{Crecimiento inverso de regiones}
 
 			 Otro método  para  eliminar  los  huecos  dentro  de  las  regiones  es  el
 			crecimiento inverso, como se observa en [3].
@@ -117,7 +119,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 			regiones. Con esto obtenemos el fondo, al invertir  la  máscara  se  tendrán
 			las siluetas de los objetos.
 
-		\section{Eliminación de la cara}
+		\subsubsection*{Eliminación de la cara}
 
 			Luego del proceso anterior, se tiene una imagen compuesta por  objetos  tipo
 			piel. Estas pueden ser la cara, las manos y algún ruido que haya pasado  los
@@ -135,6 +137,8 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 			sea cercano a 1, quedando así la cara diferenciada de las manos. Donde r  es
 			el radio del círculo cuyo centro se corresponde al centroide de la región  y
 			pasa por su punto más alejado.
+		\subsubsection*{Ubicación del puntero}
+De las áreas interesantes obtenidas se designa como puntero el punto más lejano del centroide de la región.
 
 	}
 
@@ -189,7 +193,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 %
 
 
-  \headerbox{A Future Direction}{name=questions,below=metodos,above=referencias}{
+  \headerbox{Trabajo Futuro}{name=questions,below=metodos,above=referencias}{
 		La detección de la posición de las manos fue posible en tiempo real,
 		si bien se usaron suposiciones como que los brazos estuvieran cubiertos
 		y de que no ocurriera superposición.
