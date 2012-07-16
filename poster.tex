@@ -91,7 +91,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 	}
 
 	\headerbox{Partes que merecen ser explicadas}{name=nn,column=1,span=2,below=resultados}{
-		\section{Enmascaramiento de la piel}
+		\subsection*{Enmascaramiento de la piel}
 
 			Se decidió ocupar  la información del  Hue,  como  sugiere  [2].  Como  pre-
 			proceso se aplica un filtro de mediana,  tratando  además  de  uniformar  la
@@ -107,7 +107,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 
 
 
-		\section{Crecimiento inverso de regiones}
+		\subsection*{Crecimiento inverso de regiones}
 
 			 Otro método  para  eliminar  los  huecos  dentro  de  las  regiones  es  el
 			crecimiento inverso, como se observa en [3].
@@ -117,7 +117,7 @@ Si bien la detección sería mucho más simple (al menos en el caso de que no ex
 			regiones. Con esto obtenemos el fondo, al invertir  la  máscara  se  tendrán
 			las siluetas de los objetos.
 
-		\section{Eliminación de la cara}
+		\subsection*{Eliminación de la cara}
 
 			Luego del proceso anterior, se tiene una imagen compuesta por  objetos  tipo
 			piel. Estas pueden ser la cara, las manos y algún ruido que haya pasado  los
