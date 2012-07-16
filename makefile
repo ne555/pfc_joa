@@ -2,7 +2,7 @@ all: poster.pdf
 
 .PHONY: view
 view: all
-	apvlv poster.pdf
+	xpdf poster.pdf
 
 %.pdf: %.tex 
 	pdflatex $<
