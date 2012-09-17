@@ -20,19 +20,18 @@
 \setlength{\parsep}{0pt}%
 }
 
-
 \begin{document}
 \begin{poster}
 { 
 	background=plain,
 	bgColorOne=white,
-	borderColor=green,
+	borderColor=orange,
 	linewidth=2pt,
 	headershade=plain,
-	headerColorOne=green,
+	headerColorOne=orange,
 	boxshade=plain,
 	boxColorOne=white,
-	boxColorTwo=green,
+	boxColorTwo=orange,
 	textborder=roundedsmall,
 	headerborder=open,
 	headershape=smallrounded,
@@ -40,7 +39,7 @@
 	headerfont=\large\bf\textsc, %Sans Serif
 	eyecatcher=true
 }
-{ \includegraphics[height=5.0em]{logo} }
+{ \includegraphics[height=5.0em]{eji_logo} }
 { \Large\bf\textsc{7.7.1 Localización de Manos por Webcam  aplicado a Interfaz para Dibujo} }
 { \textsc\small{ \large{Bedrij Walter, Benitez Federico, Benitez Fernado} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com, fernandobenitezfich@gmail.com} } }  { \includegraphics[height=5.0em]{fich2} }
 
@@ -49,7 +48,7 @@
 	Objetivos:
 	\begin{itemize}\compresslist	
 	\item Desarrollar un algoritmo que permita localizar la posición de las manos.
-	\item Describir su trayectoria teniendo como entrada un video sacado de una cámara web.
+	\item Describir su trayectoria teniendo como entrada un vídeo sacado de una cámara web.
 	\item Crear interfaces aéreas sin la utilización de marcadores.
 	\item Localizar las manos en tiempo real.
 	\end{itemize}
@@ -81,30 +80,39 @@
 	\end{tabular}
 	\end{center}
 }
-	\headerbox{Detalle de los métodos mas trascendentes}{name=nn,column=1,span=2,below=ana}{
+	\headerbox{Metodología}{name=nn,column=1,span=2,below=ana}{
 
-		\subsubsection*{Diferenciación con el fondo}
+	\begin{center}
+	\begin{tabular}{c}
+		\includegraphics[width=\textwidth-2em]{diagrama.png} \\
+		%\includegraphics[width=\textwidth-2em]{diagrama.pdf} \\
+		Diagrama en bloques
+	\end{tabular}
+	\end{center}
+
+	\begin{description}
+		\item[Diferenciación con el fondo] \hfill
 		\begin{itemize}\compresslist
 			\item Se realiza la diferencia entre los canales RGB del frame actual contra la imagen de referencia del fondo. Esto permite discriminar al objeto.
 		\end{itemize}
-		\subsubsection*{Enmascaramiento de la piel}
+		\item[Enmascaramiento de la piel] \hfill
 			\begin{itemize}\compresslist
 			\item Se usó  la información del  Hue,  como  sugiere  [2]. 
 			\item Como  pre-proceso se aplica un filtro de mediana,  tratando  además  de  uniformar  la
 			textura de la piel. 
-			\item Se aplica un umbral global en la  componente  H  dejando pasar el rango $H = 7 \pm 5$ (valores experimentales de la piel).
+			\item Se aplica un umbral global en la  componente  $H$  dejando pasar el rango $H = 14 \pm 10$ (valores experimentales de la piel).
 
 			\item Para eliminar los huecos internos en el Hue, 
 			%\begin{itemize}\compresslist
 			%\item
- se procedió  aplicar  un  cierre morfológico con un elemento estructurante de forma cuadrada y tamaño de  5x5,como se explica en [1].
+ se procedió  aplicar  un  cierre morfológico con un elemento estructurante de forma cuadrada y tamaño de  $5 \times 5$,como se explica en [1].
 			%\end{itemize}
 			\item Al resultado, se aplica un AND con la máscara de diferencia, obteniéndose objetos  no
 			pertenecientes al fondo con un tono parecido al de la piel.
 			\end{itemize}
 
 
-		\subsubsection*{Crecimiento inverso de regiones}
+		\item[Crecimiento inverso de regiones] \hfill
 
 			\begin{itemize}\compresslist	
 			 \item Otro método  para  eliminar  los  huecos, como se observa en [3].
@@ -116,7 +124,7 @@
 					las siluetas de los objetos.
 				%\end{itemize}
 			\end{itemize}	
-		\subsubsection*{Eliminación de la cara}
+		\item[Eliminación de la cara] \hfill
 			\begin{itemize}\compresslist	
 			\item Luego del proceso anterior, se tiene una imagen compuesta por  objetos  tipo
 			piel. Se etiquetan las  regiones, quedándose con las 3  de  mayor
@@ -131,15 +139,17 @@
 			\item Suponiendo a la cara como redonda, es de esperar
 			que al hacer el factor de  redondez
 			\[ C = \frac{\makebox{Área}}{\pi r^2}\]
-			sea cercano a 1, quedando así la cara diferenciada de las manos. Donde r  es
+			sea cercano a 1, quedando así la cara diferenciada de las manos. Donde $r$  es
 			el radio del círculo cuyo centro se corresponde al centroide de la región  y
 			pasa por su punto más alejado.% , dicho punto es  elegido como puntero de la región de interez.
 			\end{itemize}
 			\end{itemize}
-		\subsubsection*{Ubicación del puntero}
+		\item[Ubicación del puntero] \hfill
 		\begin{itemize}\compresslist
 		\item De las áreas interesantes obtenidas se designa como puntero el punto de la región  más lejano de su centroide .
 		\end{itemize}
+	
+	\end{description}
 	}
 
 \headerbox{Resultados}{name=resultados,column=0,below=intro}{
