@@ -1,5 +1,7 @@
 \documentclass[portrait,a0paper,fontscale=0.277]{baposter}
 
+\usepackage{enumitem}
+\setlist{nolistsep}
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -12,10 +14,12 @@
 % Save space in lists. Use this after the opening of the list
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\compresslist}{%
+\setlength{\topsep}{0pt}%
 \setlength{\itemsep}{0pt}%
 \setlength{\parskip}{0pt}%
 \setlength{\parsep}{0pt}%
 }
+
 
 \begin{document}
 \begin{poster}
@@ -37,7 +41,7 @@
 	eyecatcher=true
 }
 { \includegraphics[height=5.0em]{logo} }
-{ \Large\bf\textsc{Localización de Manos por Webcam  aplicado a Interfaz para Dibujo} }
+{ \Large\bf\textsc{7.7.1 Localización de Manos por Webcam  aplicado a Interfaz para Dibujo} }
 { \textsc\small{ \large{Bedrij Walter, Benitez Federico, Benitez Fernado} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com, fernandobenitezfich@gmail.com} } }  { \includegraphics[height=5.0em]{fich2} }
 
 	\headerbox{Introducción}{name=intro,column=0,row=0}{
@@ -49,6 +53,7 @@
 	\item Crear interfaces aéreas sin la utilización de marcadores.
 	\item Localizar las manos en tiempo real.
 	\end{itemize}
+
 	Alcance: 
 	\begin{itemize}\compresslist	
 	\item No se aborda el seguimiento de la mano.  
@@ -170,8 +175,8 @@
 
 		\item Para intentar solventar esos problemas se propone:
 			\begin{itemize}\compresslist	
-				 \item Realizar tracking de las manos, requiriendo  una detección global inicial.
-				 \item Realizar un refinamiento en la selección del punto característico,por ejemplo, discriminar los dedos
+				 \item Realizar tracking de las manos, requiriendo una detección global inicial.
+				 \item Realizar un refinamiento en la selección del punto característico.
 	  		\end{itemize}
 		\end{itemize}
   }
@@ -194,42 +199,8 @@
       \bibitem{pablo:fondo}
 		\newblock{Javier Godoy, Pablo Novara  y Juan Vogt. Reconocimiento de señas. 37 Jornadas Argentinas de Informática e Investigación Operativa. Argentina, 2008.}
       \end{thebibliography}
-   \vspace{0.3em}
+   %\vspace{0.3em}
   }
 
-%@BOOK{Gonzales2002,
-%    Address        = {},
-%    Author         = {Rafael C. Gonzalez and Richard E. Woods},
-%    Publisher      = {Prentice Hall},
-%    Title          = {Digital Image Processing},
-%    Year           = {2002}
-%}
-%
-%@ARTICLE{Cheng,
-%    Author         = {H. D. Cheng and X. H. Jiang and Y. Sun and Jing Li Wang},
-%    Journal          = {Pattern Recognition},
-%    Pages        = {2259--2281},
-%    Title          = {Color Image Segmentation: Advances \& Prospects},
-%    Volume         = {34},
-%    Year           = {2001}
-%}
-%
-%@ARTICLE{Vogt,
-%    Author         = {R. J. Godoy and P. Novara and J. P. Vogt},
-%    Journal        = {37 JAIIO},
-%    Pages          = {},
-%    Title          = {Reconocimiento de señas},
-%    Volume         = {},
-%    Year           = {2008}
-%}
-%
-
-
-	
-
-
 \end{poster}
-
-
-
 \end{document}
