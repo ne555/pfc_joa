@@ -1,12 +1,14 @@
 \begin{tikzpicture}[
 	%scale=0.6,
-	every node/.style={transform shape},
+	scale=0.9,
+	every node/.style={
+		transform shape
+	},
 	node distance=10mm and 5mm,
 	nonterminal/.style={
-		rectangle,
-		rounded corners=3mm,
+		circle,
 		minimum size=6mm,
-		very thick,
+		thick,
 		draw=black,
 	},
 	terminal/.style={
@@ -18,7 +20,7 @@
 		font=\footnotesize,
 		%text width=15ex,
 		align=center,
-		%text centered
+		inner sep=1ex
 	},
 	point/.style={
 		circle,
@@ -42,7 +44,7 @@
 	\node (and) [nonterminal] at ($(p3) !.5! (p4)$)
 		{$\times$};
 	\node (growth) [terminal,right=of and]
-		{Crecimiento inverso \\de regiones};
+		{Crecimiento \\inverso de\\ regiones};
 	\node (face) [terminal,right=of growth]
 		{Eliminación \\de la cara};
 	\node (pointer) [terminal,right=of face]
