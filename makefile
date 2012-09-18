@@ -1,13 +1,17 @@
-all: poster.pdf 
+project=poster.pdf
+all: $(project) diagrama_en_bloques.tex
 
-.PHONY: view
+.PHONY: view clean
+
 view: all
-	xpdf poster.pdf
+	xpdf $(project)
+
+poster.pdf: diagrama_en_bloques.tex
 
 %.pdf: %.tex 
 	pdflatex $<
 	#pdflatex --enable-write18 $< && pdflatex $< && pdflatex $<
 
 clean:
-	rm -f *.aux *.bbl *.blg *.log poster.pdf 
+	rm -f *.aux *.bbl *.blg *.log $(project)
 

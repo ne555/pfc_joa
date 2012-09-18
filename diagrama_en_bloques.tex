@@ -1,0 +1,65 @@
+\begin{tikzpicture}[
+	%scale=0.6,
+	every node/.style={transform shape},
+	node distance=10mm and 5mm,
+	nonterminal/.style={
+		rectangle,
+		rounded corners=3mm,
+		minimum size=6mm,
+		very thick,
+		draw=black,
+	},
+	terminal/.style={
+		rectangle,
+		minimum size=2em,
+		rounded corners=1mm,
+		very thin,
+		draw=black,
+		font=\footnotesize,
+		%text width=15ex,
+		align=center,
+		%text centered
+	},
+	point/.style={
+		circle,
+		inner sep=0pt,
+	}
+]
+	\node (start) [terminal]
+		{Fotograma \\de vídeo};
+	\node (p0) [point,minimum size=2pt,fill=black,right=of start] {};
+	\node (p1) [point,above=of p0] {};
+	\node (p2) [point,below=of p0] {};
+	\node (skin) [terminal,right=of p1]
+		{Enmascaramiento \\de la piel};
+	\node (p3) [point,right=of skin] {};
+	\node (diff) [terminal,right=of p2]
+		{Diferenciación \\con el fondo};
+	\node (ref) [terminal,left=of p2]
+		{Imagen \\de referencia};
+	\node (p4) [point,right=of diff] {};
+	%\node (p5) [point,above=of p4] {};
+	\node (and) [nonterminal] at ($(p3) !.5! (p4)$)
+		{$\times$};
+	\node (growth) [terminal,right=of and]
+		{Crecimiento inverso \\de regiones};
+	\node (face) [terminal,right=of growth]
+		{Eliminación \\de la cara};
+	\node (pointer) [terminal,right=of face]
+		{Ubicación \\del puntero};
+	\node (interfaz) [terminal,right=of pointer]
+		{Interfaz};
+
+	\draw  (start) -- (p0);
+	\draw [line] (p0) |- (skin);
+	\draw [line] (p0) |- (diff);
+	\draw [line] ([yshift=-1ex]ref.east) -- ([yshift=-1ex]diff.west);
+	\draw [line] (skin) -| (and);
+	\draw [line] (diff) -| (and);
+	\draw [line] (and) -- (growth);
+	\draw [line] (growth) -- (face);
+	\draw [line] (face) -- (pointer);
+	\draw [line] (pointer) -- (interfaz);
+
+
+\end{tikzpicture}

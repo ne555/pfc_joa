@@ -3,13 +3,17 @@
 \usepackage{enumitem}
 \setlist{nolistsep}
 
-\usepackage[spanish]{babel}
+%\usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 %\usepackage{capt-of}
 \usepackage{captdef}
 
+\usepackage{tikz}
+\usetikzlibrary{calc,automata,positioning,arrows}
+
+\tikzstyle{line} = [draw, -latex]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Save space in lists. Use this after the opening of the list
@@ -85,7 +89,7 @@
 
 	\begin{center}
 	\begin{tabular}{c}
-		\includegraphics[width=\textwidth-2em]{diagrama3.png} \\
+		\input{diagrama_en_bloques.tex} \\
 		%\includegraphics[width=\textwidth-2em]{diagrama.pdf} \\
 		Diagrama en bloques
 	\end{tabular}
