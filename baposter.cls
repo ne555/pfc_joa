@@ -152,7 +152,7 @@
 \RequirePackage{tikz}
 \RequirePackage{pgf}
 \RequirePackage{ifthen}
-\RequirePackage[T1]{fontenc}
+\RequirePackage{fontenc}
 %\RequirePackage[l2tabu, orthodox]{nag}
 \usetikzlibrary{decorations}
 \usetikzlibrary{fadings}

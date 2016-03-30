@@ -5,6 +5,7 @@
 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{fontenc}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 %\usepackage{capt-of}
@@ -24,6 +25,8 @@
 \setlength{\parskip}{0pt}%
 \setlength{\parsep}{0pt}%
 }
+
+\renewcommand{\includegraphics}[2][foo]{}
 
 \begin{document}
 \begin{poster}
@@ -45,24 +48,24 @@
 	eyecatcher=true
 }
 { \includegraphics[height=5.0em]{eji_logo} }
-{ \Large\bf\textsc{7.7.1 Localización de Manos por Webcam  aplicado a Interfaz para Dibujo} }
-{ \textsc\small{ \large{Bedrij Walter, Benitez Federico, Benitez Fernado} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com, fernandobenitezfich@gmail.com} } }  { \includegraphics[height=5.0em]{fich2} }
+{ \Large\bf\textsc{Título} }
+{ \textsc\small{ \large{Bedrij Walter, Benitez Federico} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com} } }  { \includegraphics[height=5.0em]{fich2} }
 
 	\headerbox{Introducción}{name=intro,column=0,row=0}{
 	
 	Objetivos:
 	\begin{itemize}\compresslist	
-	\item Desarrollar un algoritmo que permita localizar la posición de las manos.
-	\item Describir su trayectoria teniendo como entrada un vídeo sacado de una cámara web.
-	\item Crear interfaces aéreas sin la utilización de marcadores.
-	\item Localizar las manos en tiempo real.
+	\item
+	\item
+	\item
+	\item
 	\end{itemize}
 
 	Alcance: 
 	\begin{itemize}\compresslist	
-	\item No se aborda el seguimiento de la mano.  
-	\item No se aborda la resolución de casos en donde la mano se encuentra sobre la cara.
-	\item Se supone  el brazo cubierto. 
+	\item 
+	\item 
+	\item 
 	\end{itemize}
 	}
 
@@ -98,101 +101,19 @@
 	\begin{description}
 		\item[Diferenciación con el fondo] \hfill
 		\begin{itemize}\compresslist
-			\item Se realiza la diferencia entre los canales RGB del frame actual contra la imagen de referencia del fondo. Esto permite discriminar al objeto.
+			\item 
 		\end{itemize}
-		\item[Enmascaramiento de la piel] \hfill
-			\begin{itemize}\compresslist
-			\item Se usó  la información del  Hue,  como  sugiere  [2]. 
-			\item Como  pre-proceso se aplica un filtro de mediana,  tratando  además  de  uniformar  la
-			textura de la piel. 
-			\item Se aplica un umbral global en la  componente  $H$  dejando pasar el rango $H = 14 \pm 10$ (valores experimentales de la piel).
-
-			\item Para eliminar los huecos internos en el Hue, 
-			%\begin{itemize}\compresslist
-			%\item
- se procedió  aplicar  un  cierre morfológico con un elemento estructurante de forma cuadrada y tamaño de  $5 \times 5$,como se explica en [1].
-			%\end{itemize}
-			\item Al resultado, se aplica un AND con la máscara de diferencia, obteniéndose objetos  no
-			pertenecientes al fondo con un tono parecido al de la piel.
-			\end{itemize}
-
-
-		\item[Crecimiento inverso de regiones] \hfill
-
-			\begin{itemize}\compresslist	
-			 \item Otro método  para  eliminar  los  huecos, como se observa en [3].
-				%\begin{itemize}\compresslist	
-					Sobre el Hue, a partir de  un  punto  que  se conoce fuera de cualquier zona de  interés,  realizamos  el  crecimiento  de
-					regiones. 
-					%\item 
-\item Con esto obtenemos el fondo, al invertir  la  máscara  se tendrán
-					las siluetas de los objetos.
-				%\end{itemize}
-			\end{itemize}	
-		\item[Eliminación de la cara] \hfill
-			\begin{itemize}\compresslist	
-			\item Luego del proceso anterior, se tiene una imagen compuesta por  objetos  tipo
-			piel. Se etiquetan las  regiones, quedándose con las 3  de  mayor
-			área.
-			\item Si resulta que  alguna  es  excesivamente
-			pequeña con respecto a  las  otras  ($25 \%$)  es  considerada  como  ruido  y
-			eliminada.
-
-			\item Queda  eliminar la región que identifica a la cara. Para facilitar el proceso, la mano debe
-			tener un dedo extendido: 
-			\begin{itemize}\compresslist
-			\item Suponiendo a la cara como redonda, es de esperar
-			que al hacer el factor de  redondez
-			\[ C = \frac{\makebox{Área}}{\pi r^2}\]
-			sea cercano a 1, quedando así la cara diferenciada de las manos. Donde $r$  es
-			el radio del círculo cuyo centro se corresponde al centroide de la región  y
-			pasa por su punto más alejado.% , dicho punto es  elegido como puntero de la región de interez.
-			\end{itemize}
-			\end{itemize}
-		\item[Ubicación del puntero] \hfill
-		\begin{itemize}\compresslist
-		\item De las áreas interesantes obtenidas se designa como puntero el punto de la región  más lejano de su centroide .
-		\end{itemize}
-	
 	\end{description}
 	}
 
 \headerbox{Resultados}{name=resultados,column=0,below=intro}{
 		\begin{itemize}\compresslist
-		\item El uso de una imagen de referencia permitió  que  la  mano  se
-		ubicara sobre zonas de tonalidad parecida.
-
-		\item El  Hue  mostró  ser  bastante  robusto  a  los  cambios  de  intensidad  de
-		iluminación.
-
-		\item Cuando se captó el dedo como  una  región  separada de la palma, fue
-		eliminado por su  área  insignificante,  quedando   la  palma  de  forma
-		aproximadamente circular, fallando así la heurística .
-
-		\item Se observó oscilaciones  instantáneas de los punteros 
-		producto de detecciones de  puntos  lejanos  no  deseados. \\
-		En los Casos: 
-			\begin{itemize}\compresslist
-			\item Cuando se tenía el brazo descubierto
-			\item Cuando se fragmentaba la región del dedo
-			\end{itemize}
-
+			\item
 		\end{itemize}
 	}
   \headerbox{Conclusión y Futuro Trabajo}{name=questions,below=resultados}{
 		\begin{itemize}\compresslist
-		\item La detección de la posición de las manos fue posible en tiempo real.
-
-		\item Se necesitó usar una conformación en las posiciones de los dedos. 
-
-		\item Problemas en la segmentación generaba falsas identificaciones, permitiendo
-		 discontinuidades en las posiciones de los punteros.
-
-		\item Para intentar solventar esos problemas se propone:
-			\begin{itemize}\compresslist	
-				 \item Realizar tracking de las manos, requiriendo una detección global inicial.
-				 \item Realizar un refinamiento en la selección del punto característico.
-	  		\end{itemize}
+			\item
 		\end{itemize}
   }
 
@@ -204,15 +125,13 @@
     \renewcommand{\section}[2]{\vskip 0.05em}
       \begin{thebibliography}{1}\itemsep=-0.01em
       \setlength{\baselineskip}{0.4em}
+
 	  \bibitem{gonzales2002:manual}
 	  	Rafael Gonzales, Richard Woods.
 		\newblock{Digital Image Processing.}
 		\newblock{Prentice Hall.}
 		\newblock{Estados Unidos, 2002.}
-      \bibitem{chenk:hue}
-      		\newblock{H. D. Cheng, X. H. Jiang, Y. Sun, y J. L. Wang. Color image segmentation: Advances \& prospects. Pattern Recognition, vol. 34, pp. 2259–2281. Estados Unidos, 2001.}
-      \bibitem{pablo:fondo}
-		\newblock{Javier Godoy, Pablo Novara  y Juan Vogt. Reconocimiento de señas. 37 Jornadas Argentinas de Informática e Investigación Operativa. Argentina, 2008.}
+
       \end{thebibliography}
    %\vspace{0.3em}
   }
