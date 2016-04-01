@@ -28,6 +28,7 @@
 
 \renewcommand{\includegraphics}[2][foo]{}
 \newcommand{\Marca}[1]{{\bfseries\textcolor{green}{#1}}}
+\newcommand{\MarcaErr}[1]{{\bfseries\textcolor{red}{#1}}}
 
 \begin{document}
 \begin{poster}
@@ -153,24 +154,10 @@ se irán agregando nuevos riesgos, supuestos y restricciones.
     \input{objetivos}
 	
 	\section* {Alcance} 
-En este trabajo se presenta el diseño e implementación de un sistema para
-el reconocimiento de signos manuales en tiempo real, mediante el procesamiento del flujo de video de una cámara web estándar en un ambiente de
-trabajo controlado.
+En este trabajo se presenta el diseño e implementación de un \Marca{sistema para
+el reconocimiento} de signos manuales en \Marca{tiempo real}, mediante el procesamiento del flujo de video de una \Marca{cámara web} estándar en un \Marca{ambiente de
+trabajo controlado}.
 
-	\begin{center}
-	\begin{tabular}{c}
-		\input{diagrama_en_bloques.tex} \\
-		%\includegraphics[width=\textwidth-2em]{diagrama.pdf} \\
-		Diagrama en bloques
-	\end{tabular}
-	\end{center}
-
-	\begin{description}
-		\item[Diferenciación con el fondo] \hfill
-		\begin{itemize}\compresslist
-			\item 
-		\end{itemize}
-	\end{description}
 	}
 
 
