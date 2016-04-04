@@ -51,17 +51,17 @@
 	columns=2
 }
 {} %\includegraphics[height=5.0em]{eji_logo} }
-{ \Large\bf\textsc{Justificación, Redacción de Objetivos y Definición de Alcances en un Proyecto} }
-{ \textsc\small{ \large{Bedrij Walter, Benitez Federico} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com} } }  { \includegraphics[height=5.0em]{fich2} }
+{ \Large\bf\textsc{Justificación, Redacción de Objetivos y Definición de Alcances de un Proyecto} }
+{ \textsc\small{ \large{Bedrij Walter, Benitez Federico} \\ \footnotesize {wbedrij@gmail.com, federicobenitez2@gmail.com} } }  { }%\includegraphics[height=5.0em]{fich2} }
 
 	\headerbox{Introducción}{name=intro,column=0,row=0}{
 	
-	La justificación del proyecto presenta los principales argumentos que permite convencer el porque el proyecto es necesario llevarlo a cabo como tambien verificar su viabilidad. 
-La elaboracion de objetivos nos permite la planificacion y seguimiento del proyecto
-Todo proyecto necesita cumplir determinados requisitos y se encuentra limitado por ciertas restricciones, esto queda defiido en el alcance del proyecto. 
+	La justificación presenta los principales argumentos que permite convencer el por qué  es necesario llevarlo a cabo el proyecto como también verificar su viabilidad. \\
+La elaboración de objetivos nos permite la planificación y seguimiento del proyecto.\\
+Un proyecto necesita cumplir determinados requisitos y se encuentra limitado por ciertas restricciones, estas consideraciones quedan definidos en su alcance. 
 	}
 
-\headerbox{Desarrollo }{name=ana,column=0,span=1,below=intro}{
+\headerbox{Desarrollo}{name=ana,column=0,span=1,below=intro}{
 
 	\section*{Justificación}
 	La Justificación permite tomar una decisión sobre si  el proyecto
@@ -80,46 +80,67 @@ factores económicos y/o de programas.
 criterios reconocidos.
 	\end{itemize}
 
-\section*{Objetivos: SMART}
-\begin{description}
-	\item[Specific (Específico)] Dejar explícito, para que no haya ambigüedad.
-		\begin{itemize}\compresslist
-			\item ¿Qué hacer? Acciones positivas.
-			\item ¿Cuál será el resultado?
-			\item ¿Por qué es importante?
-			\item ¿Quién es el responsable?
-			\item ¿Cuáles son los requerimientos y las restricciones?
-		\end{itemize}
-	\item[Measurable (Medible)]
-	Definir criterios que indiquen que se logró el resultado esperado (o qué tan lejos estamos)
-\item[Achievable (Alcanzable)]\hfill
-	\begin{itemize}\compresslist
-		\item ¿Se puede lograr con los recursos que disponemos?
-		\item ¿Entendemos las restricciones?
-		\item ¿Es posible y práctico?
-	\end{itemize}
-\item[Relevant (Relevante)]
-	Cómo el objetivo se relaciona con el rol de cada miembro del equipo, y los objetivos de la organización.
-	Los objetivos deben apoyarse mutuamente y no generar conflicto.
-\item[Time-bound (Limitado en el tiempo)]
-	Definir fechas límite.
-	%¿Cuándo se completará?
+\section*{Objetivos: Aspectos}
 
-\end{description}
-	
-	
-\section*{Definir el Alcance} Es el proceso que consiste en desarrollar una descripción detallada del
+%\begin{description}
+%	\item[Specific (Específico)] Dejar explícito, para que no haya ambigüedad.
+%		\begin{itemize}\compresslist
+%			\item ¿Qué hacer? Acciones positivas.
+%			\item ¿Cuál será el resultado?
+%			\item ¿Por qué es importante?
+%			\item ¿Quién es el responsable?
+%			\item ¿Cuáles son los requerimientos y las restricciones?
+%		\end{itemize}
+%	\item[Measurable (Medible)]
+%	Definir criterios que indiquen que se logró el resultado esperado (o qué tan lejos estamos)
+%\item[Achievable (Alcanzable)]\hfill
+%	\begin{itemize}\compresslist
+%		\item ¿Se puede lograr con los recursos que disponemos?
+%		\item ¿Entendemos las restricciones?
+%		\item ¿Es posible y práctico?
+%	\end{itemize}
+%\item[Relevant (Relevante)]
+%	Cómo el objetivo se relaciona con el rol de cada miembro del equipo, y los objetivos de la organización.
+%	Los objetivos deben apoyarse mutuamente y no generar conflicto.
+%\item[Time-bound (Limitado en el tiempo)]
+%	Definir fechas límite.
+%	%¿Cuándo se completará?
+%
+%\end{description}
+
+\subsection*{SMART}
+\begin{center}	
+		\includegraphics[width=1\linewidth]{smart}
+\end{center}
+
+\subsection*{Objetivo general y objetivos específicos}
+El objetivo general debe describir la finalidad principal que persigue
+el proyecto.\\
+Los objetivos específicos deben representar lo que se pretende alcanzar de forma concreta
+y que contribuyen a obtener el resultado del objetivo general.
+
+\begin{center}	
+		\includegraphics[width=1\linewidth]{obgye}
+\end{center} 
+
+}
+
+
+\headerbox{Desarrollo}{name=alca,column=1,span=1}{
+		
+\section*{Definir el Alcance} 
+Consiste en desarrollar una descripción detallada del
 proyecto y del producto. Se elabora a partir de los entregables principales, los supuestos y
 las restricciones que se documentan durante el inicio del proyecto. Se analizan los riesgos, los
 supuestos y las restricciones existentes, para verificar que estén completos; según sea necesario,
 se irán agregando nuevos riesgos, supuestos y restricciones. 
 
 	\begin{center}	
-		\includegraphics[width=.8\linewidth]{alcance}
+		\includegraphics[width=.55\linewidth]{alcance}
 	\end{center}
 }
 
-	\headerbox{Ejemplos}{name=ejemplo,column=1,span=1}{
+\headerbox{Ejemplos}{name=ejemplo,column=1,span=1,below=alca}{
 	
 	\input{justificacion}   
     \input{objetivos}
@@ -130,18 +151,17 @@ el reconocimiento} de signos manuales en \Marca{tiempo real}, mediante el proces
 trabajo controlado}.
 
 	
-	}
+}
 
 
-  \headerbox{Conclusión}{name=questions,column=1,below=ejemplo}{
-		\begin{itemize}\compresslist
-			\item
-		\end{itemize}
-  }
+%  \headerbox{Conclusión}{name=questions,column=1,below=ejemplo}{
+%		\begin{itemize}\compresslist
+%			\item
+%		\end{itemize}
+%  }
 
 
-
-  \headerbox{Referencias}{name=referencias,column=1,above=bottom}{
+\headerbox{Referencias}{name=referencias,column=1,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \bibliographystyle{ieee}
     \renewcommand{\section}[2]{\vskip 0.05em}
@@ -168,13 +188,13 @@ Planning.
 		\newblock{2012.}
 		
 		\bibitem{01:PFG}
-		\newblock{Estructura básica para elaborar un Proyecto Finalde Graduación.}
+		\newblock{Estructura básica para elaborar un Proyecto Final de Graduación.}
 		\newblock{Maestría en Administraciónde las Tecnologías de la Información. Universidad para la Cooperación Internacional.}
 		\newblock{2012.}		
 		
       \end{thebibliography}
    %\vspace{0.3em}
-  }
+}
 
 \end{poster}
 \end{document}
