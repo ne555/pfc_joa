@@ -3,9 +3,12 @@
 \usepackage{enumitem}
 \setlist{nolistsep}
 
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{fontenc}
+%\usepackage[spanish]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{polyglossia} %reemplaza a babel
+\setmainlanguage{spanish}
+\usepackage{fontspec} %utf8
+%\usepackage{fontenc}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 %\usepackage{capt-of}
@@ -15,6 +18,8 @@
 \usetikzlibrary{calc,automata,positioning,arrows}
 
 \tikzstyle{line} = [draw, -latex]
+
+\usepackage{array}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Save space in lists. Use this after the opening of the list
@@ -29,6 +34,8 @@
 
 \newcommand{\Marca}[1]{{\bfseries\textcolor{green}{#1}}}
 \newcommand{\MarcaErr}[1]{{\bfseries\textcolor{red}{#1}}}
+
+\newcommand{\Nombre}[1]{{\bfseries#1}}
 
 \begin{document}
 \begin{poster}
@@ -108,10 +115,44 @@ criterios reconocidos.
 %
 %\end{description}
 
-\subsection*{SMART}
-\begin{center}	
-		\includegraphics[width=1\linewidth]{smart}
-\end{center}
+%\subsection*{SMART}
+%\begin{center}
+%		\includegraphics[width=1\linewidth]{smart}
+%\end{center}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}
+	{ >{\Huge\centering\arraybackslash}m{.1\linewidth} | >{\arraybackslash}m{.8\linewidth} }
+	S &
+	\Nombre{Specific (Específico):}
+		Dejar explícito, para que no haya ambigüedad.
+		¿Qué hacer? Acciones positivas.
+		¿Cuál será el resultado?
+		¿Por qué es importante?
+		¿Quién es el responsable?
+		¿Cuáles son los requerimientos y las restricciones?
+	\\
+	M &
+	\Nombre{Measurable (Medible):}
+		Definir criterios que indiquen que se logró el resultado esperado (o qué tan lejos estamos)
+	\\
+	A &
+	\Nombre{Achievable (Alcanzable):}
+		¿Se puede lograr con los recursos que disponemos?
+		¿Entendemos las restricciones?
+		¿Es posible y práctico?
+	\\
+	R &
+	\Nombre{Relevant (Relevante):}
+		Cómo el objetivo se relaciona con el rol de cada miembro del equipo, y los objetivos de la organización.
+	\\
+	T &
+	\Nombre{Time-bound (Limitado en el tiempo):}
+		Definir fechas límite.
+	\\
+\end{tabular}
+\egroup
 
 \subsection*{Objetivo general y objetivos específicos}
 El objetivo general debe describir la finalidad principal que persigue
